@@ -44,7 +44,6 @@ export default {
     margin: 10px 0 50px 0;
 }
 
-
 .category__title{
     font-size: 40px;
     font-weight: 700;

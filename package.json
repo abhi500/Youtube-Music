@@ -12,6 +12,9 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@iconify/icons-ant-design": "^1.0.8",
+    "@iconify/icons-ic": "^1.0.15",
+    "@iconify/vue": "^1.0.2",
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
