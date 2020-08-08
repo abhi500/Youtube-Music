@@ -50,7 +50,6 @@ export default {
   display: flex;
   flex-direction: column;
   background-color: black;
-  height: 100vh;
 }
 
 .app__navbar{

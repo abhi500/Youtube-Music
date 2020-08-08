@@ -79,7 +79,7 @@ export default {
         },
 
         onClick(){
-            console.log(this.$parent.methods)
+            // console.log(this.$parent.)
         }
     },
 
