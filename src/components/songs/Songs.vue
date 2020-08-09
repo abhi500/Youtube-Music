@@ -1,5 +1,5 @@
 <template>
-    <div class="songs">
+    <div class="songs songs--size">
         <ul class="songs__list">
             <li class="songs__item" v-for="song in songs" :key="song.id">
                 <song :song="song"></song>
@@ -7,7 +7,7 @@
         </ul>
         <div class="next next--size">
             <IconifyIcon 
-                :icon="icons.arrowRightOutlined" 
+                :icon="icons.baselineExpandLess" 
                 class="next__icon"/>
         </div>
     </div>
@@ -42,6 +42,11 @@ export default {
             }
         }
     },
+
+    mounted() {
+        var ul = document.getElementsByClassName('songs__list')[0];
+        ul.scrollTop  = 1000
+    },
 }
 </script>
 
@@ -52,13 +57,19 @@ export default {
     align-items: center;
 }
 
+.songs--size{
+    height: auto;
+}
+
 .songs__list{
     list-style: none;
     display: flex;
     align-items: flex-start;
+    overflow-x: scroll;
 }
 
 .next{
+    cursor: pointer;
     background-color: white;
     position: absolute;
     left: 88.6%;
@@ -74,6 +85,7 @@ export default {
 .next__icon{
     margin-top: 10px;
     font-size: 20px;
+    transform: rotate(90deg);
 }
 
 

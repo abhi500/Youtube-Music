@@ -1,10 +1,10 @@
 <template>
   <div id="app" @click="hideProfile">
-    <div class="app__navbar app__navbar--size">
+    <div class="app__navbar">
       <navbar></navbar>
     </div>
-    <div class="app__home app__home--size">
-      <home></home>
+    <div class="app__main">
+      <router-view></router-view>
     </div>
 
   </div>
@@ -13,14 +13,12 @@
 <script>
 
 import Navbar from './components/Navbar';
-import Home from './components/Home';
 import { EventBus } from './event-bus.js';
 
 export default {
   name: 'App',
   components: {
     navbar: Navbar,
-    home: Home
   },
 
   methods: {
@@ -53,10 +51,12 @@ export default {
 }
 
 .app__navbar{
-  flex: auto;
+  flex: 60px;
+  position: sticky;
+  top: 0;
 }
 
-.app__home{
+.app__main{
   flex: auto;
 }
 

@@ -9,7 +9,7 @@
             </a>
         </div> 
         <ul class="navbar__menus">
-            <li v-for="(menu, index) in menus" :key="index">
+            <li v-for="(menu, index) in menus" :key="index" @click="onNavClick(menu.name)">
                 <p class="navbar__menu">
                     <img :src="menu.icon" class="navbar__menu-icon">
                     <span class="navbar__menu-title">{{ menu.name }}</span>
@@ -57,6 +57,11 @@ export default {
     methods: {
         showProfile(){
             this.profileComponentVisible = true;
+        },
+
+        onNavClick(navItem){
+            if(this.$route.name != navItem)
+                this.$router.push({ name: navItem })
         }
     },
 }
@@ -74,7 +79,7 @@ export default {
 }
 
 .navbar--size{
-    height: 60px;
+    height: 100%;
     width: 100%;
 }
 
@@ -133,6 +138,7 @@ export default {
 .navbar__profile{
     position: fixed;
     right: 20px;
+    z-index: 2;
 }
 
 @media screen and (max-width: 800px) { 

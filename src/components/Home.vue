@@ -32,7 +32,6 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    overflow: hidden;
     margin: 50px auto;
 }
 
@@ -41,7 +40,7 @@ export default {
 }
 
 .home__category--size{
-    margin: 0 50px;
+    width: 100%;
 }
 
 </style>

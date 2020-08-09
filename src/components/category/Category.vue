@@ -52,6 +52,7 @@ export default {
 
 .category__songs{
     margin: 20px 0;
+    width: 100%;
 }
 
 </style>
