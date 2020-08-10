@@ -1,21 +1,27 @@
-export const profileIcon = 'https://yt3.ggpht.com/-MqVwYmVtAvo/AAAAAAAAAAI/AAAAAAAAAAA/Z45Dqu5s5dI/s108-c-k-c0x00ffffff-no-rj-mo/photo.jpg';
+import searchOutlined from '@iconify/icons-ant-design/search-outlined';
+import sharpLibraryMusic from '@iconify/icons-ic/sharp-library-music';
+import baselineExplore from '@iconify/icons-ic/baseline-explore';
+import homeFilled from '@iconify/icons-ant-design/home-filled';
+import bxsUser from '@iconify/icons-bx/bxs-user';
+
+export const profileIcon = bxsUser;
 
 export const menus = [
     {
         name: 'Home',
-        icon: 'https://www.freeiconspng.com/uploads/search-icon-png-4.png'
+        icon: homeFilled
     },
     {
         name: 'Explore',
-        icon: 'https://www.freeiconspng.com/uploads/search-icon-png-4.png'
+        icon: baselineExplore
     },
     {
         name: 'Library',
-        icon: 'https://www.freeiconspng.com/uploads/search-icon-png-4.png'
+        icon: sharpLibraryMusic
     },
     {
         name: 'Search',
-        icon: 'https://www.freeiconspng.com/uploads/search-icon-png-4.png'
+        icon: searchOutlined
     }
 ]
     

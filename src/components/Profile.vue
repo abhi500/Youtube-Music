@@ -17,11 +17,12 @@
                     :key="option.id" 
                     class="option option--size">
                     <a href="#" class="option__item option__item--size">
-                        <img :src="option.icon" class="option__icon--size">
+                        <IconifyIcon :icon="option.icon" class="option__icon option__icon--size"/>
                         <span class="option__name">{{ option.name }}</span>
-                        <img v-if="option.id == 3" 
-                            :src="option.icon" 
-                            class="option__icon--size option__more-icon">
+                        <IconifyIcon v-if="option.id == 3" 
+                                :icon="option.anotherIcon" 
+                                class="option__icon--size 
+                                option__more-icon"/>
                     </a>
                 </li>
             </ul>
@@ -33,7 +34,7 @@
                     :key="option.id"
                     class="option option--size">
                     <a href="#" class="option__item option__item--size">
-                        <img :src="option.icon" class="option__icon--size">
+                        <IconifyIcon :icon="option.icon" class="option__icon option__icon--size"/>
                         <span class="option__name">{{ option.name }}</span>
                     </a>
                 </li>
@@ -46,9 +47,15 @@
 
 import { options, otherOptions } from '../apis/profile';
 import { user } from '../apis/profile';
+import IconifyIcon from '@iconify/vue';
+
 // import { EventBus } from '../event-bus';
 
 export default {
+    components: {
+        IconifyIcon
+    },
+
     data() {
         return {
             // datas
@@ -174,9 +181,13 @@ export default {
     height: 40px;
 }
 
+.option__icon{
+    color: lightgrey;
+}
+
 .option__icon--size{
-    height: 16px;
-    width: 16px;
+    height: 20px;
+    width: 20px;
 }
 
 .option__name{
@@ -185,6 +196,7 @@ export default {
 }
 
 .option__more-icon{
+    transform: rotate(-90deg);
     margin-left: auto;
     margin-right: 10px;
 }

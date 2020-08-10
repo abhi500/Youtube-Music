@@ -1,7 +1,9 @@
 <template>
     <div class="category category--size">
         <span class="category__title">{{ category.name }}</span>
-        <songs :songs="category.songs" class="category__songs"></songs>
+        <songs :songs="category.songs" 
+               :categoryId="category.id"
+                class="category__songs"></songs>
     </div>
 </template>
 

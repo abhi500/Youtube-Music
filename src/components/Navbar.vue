@@ -9,18 +9,19 @@
             </a>
         </div> 
         <ul class="navbar__menus">
-            <li v-for="(menu, index) in menus" :key="index" @click="onNavClick(menu.name)">
+            <li v-for="(menu, index) in menus" :key="index" @click="onNavClick(menu.name, index)">
                 <p class="navbar__menu">
-                    <img :src="menu.icon" class="navbar__menu-icon">
+                    <IconifyIcon :icon="menu.icon" class="navbar__menu-icon"/>
                     <span class="navbar__menu-title">{{ menu.name }}</span>
                 </p>
             </li>
         </ul>
         <div class="navbar__right">
-            <img :src="profileIcon" 
+            <IconifyIcon :icon="profileIcon" 
                 class="navbar__profile-icon 
-                navbar__profile-icon--size"
-                @click="showProfile">
+                navbar__profile-icon--size
+                navbar__profile-icon--theme"
+                @click="showProfile"/>
             <div class="navbar__profile" v-if="profileComponentVisible">
                 <profile v-bind:isVisible="true"></profile>
             </div>    
@@ -30,19 +31,23 @@
 
 <script>
 
+import IconifyIcon from '@iconify/vue';
 import Profile from './Profile';
 import { menus, profileIcon } from '../apis/navbar';
 
 export default {
     components: {
         profile: Profile,
+        IconifyIcon
     },
 
     data() {
         return {
            menus: menus,
            profileIcon: profileIcon,
-           profileComponentVisible: false
+           profileComponentVisible: false,
+           previousMenuIndex: Number,
+           currentMenuIndex: 0
         }
     },
 
@@ -51,7 +56,7 @@ export default {
         document.getElementsByClassName('navbar__menu-icon')[3].style.display = 'flex';
 
         // set white color to first menu
-        document.getElementsByClassName('navbar__menu')[0].style.color = 'white';
+        document.getElementsByClassName('navbar__menu')[this.currentMenuIndex].style.color = 'white';
     },
 
     methods: {
@@ -59,9 +64,15 @@ export default {
             this.profileComponentVisible = true;
         },
 
-        onNavClick(navItem){
+        onNavClick(navItem, index){
+            if(this.currentMenuIndex != index){
+                this.previousMenuIndex = this.currentMenuIndex;
+                this.currentMenuIndex = index;
+                document.getElementsByClassName('navbar__menu')[this.currentMenuIndex].style.color = 'white';
+                document.getElementsByClassName('navbar__menu')[this.previousMenuIndex].style.color = 'grey'
+            }
             if(this.$route.name != navItem)
-                this.$router.push({ name: navItem })
+                this.$router.push({ name: navItem }) 
         }
     },
 }
@@ -79,7 +90,7 @@ export default {
 }
 
 .navbar--size{
-    height: 100%;
+    height: 60px;
     width: 100%;
 }
 
@@ -113,8 +124,6 @@ export default {
 }
 
 .navbar__menu-icon{
-    color: white;
-    height: 20px;
     margin-right: 20px;
     display: none;
 }
@@ -128,11 +137,17 @@ export default {
 
 .navbar__profile-icon{
     border-radius: 12.5px;
+    color: white;
+    padding-top: 5px;
 }
 
 .navbar__profile-icon--size{
     height: 25px;
     width: 25px;
+}
+
+.navbar__profile-icon--theme{
+    background-color: #26a69a;
 }
 
 .navbar__profile{
@@ -141,7 +156,7 @@ export default {
     z-index: 2;
 }
 
-@media screen and (max-width: 800px) { 
+@media screen and (max-width: 935px) { 
     .navbar__menu-title{ 
         display: none;
         margin-right: 0px;
@@ -151,8 +166,6 @@ export default {
         display: flex;
         margin-right: 0px;
     }
-
-
 }
 
 </style>

@@ -14,7 +14,9 @@
   },
   "devDependencies": {
     "@iconify/icons-ant-design": "^1.0.8",
+    "@iconify/icons-bx": "^1.0.3",
     "@iconify/icons-ic": "^1.0.15",
+    "@iconify/icons-uil": "^1.0.14",
     "@iconify/vue": "^1.0.2",
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",

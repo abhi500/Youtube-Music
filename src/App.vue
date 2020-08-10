@@ -24,7 +24,6 @@ export default {
   methods: {
     hideProfile(){
       EventBus.$emit('hideProfile');
-      console.log(1)
     }  
   },
 }
@@ -51,7 +50,7 @@ export default {
 }
 
 .app__navbar{
-  flex: 60px;
+  flex: auto;
   position: sticky;
   top: 0;
 }
